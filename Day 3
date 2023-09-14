@@ -36,24 +36,16 @@ class list{
     }
 
     void rotate(list* &head,list* &tail, int k){
-        list *temp= head;
-        list *prev= head;
+        list *temp= tail;
 
         for(int i=0;i<k;i++){
-            
-            while(prev->next->next!=NULL){
-                prev=prev->next;
-            }
-            tail->next=temp;
             temp=tail;
-            // head=tail;
-            tail=prev;
+            temp->next= head;
+            head =head->next;
+            tail=tail->next;
             tail->next=NULL;
-
         }
-        head=temp;
     }
-
 
 int main(){
 
